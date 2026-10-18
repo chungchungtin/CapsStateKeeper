@@ -1,0 +1,19 @@
+name: macOS checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test-and-build:
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Swift version
+        run: swift --version
+      - name: Unit and isolated installer tests
+        run: swift test
+      - name: Build and verify local app bundles
+        run: ./script/build_and_run.sh build

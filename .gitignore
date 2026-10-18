@@ -1,0 +1,10 @@
+.build/
+dist/
+.app-backups/
+.DS_Store
+
+# Local diagnostic history and the original installer shortcut.
+# Keep these files on disk; they are not part of the public source package.
+AppleFeedback/
+CapsLock_Apple_Feedback_Package.zip
+安裝浮動提示.command
