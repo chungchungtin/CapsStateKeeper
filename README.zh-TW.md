@@ -1,14 +1,14 @@
-# CapsStateKeeper
+# e04
 
 [English](README.md) · 繁體中文
 
-[作品網站](https://chungchungtin.github.io/CapsStateKeeper/) · [原始碼預覽版](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.2-preview.1) · [回報問題](https://github.com/chungchungtin/CapsStateKeeper/issues)
+[作品網站](https://chungchungtin.github.io/CapsStateKeeper/) · [原始碼預覽版](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.2-preview.2) · [回報問題](https://github.com/chungchungtin/CapsStateKeeper/issues)
 
 **想打中文，卻打出一串英文？**
 
 回中文訊息、輸入英文網址、切到另一個 App……每天切換中英文，常常打了一串才發現輸入法還停在上一個狀態。刪掉、切換、再重打，連剛才想說什麼都被打斷。
 
-CapsStateKeeper 是給經常切換中英文的 Mac 使用者的小工具：打字時，在文字游標旁顯示目前的輸入法與 `abc / ABC`，讓你早一點發現切錯，少一點刪掉重打。
+e04（原名 CapsStateKeeper）是給經常切換中英文的 Mac 使用者的小工具：打字時，在文字游標旁顯示目前的輸入法與 `abc / ABC`，讓你早一點發現切錯，少一點刪掉重打。
 
 浮標不搶焦點、不擋滑鼠點擊；停止打字約 2 秒就會隱藏。另提供選單列 Caps Lock 狀態，並修復切回 ABC 時特定的 Caps Lock 不同步問題。
 
@@ -33,6 +33,8 @@ cd CapsStateKeeper
 ./script/build_and_run.sh
 ```
 
+App 顯示名稱為 **e04**；套件檔名仍為 `CapsStateKeeper.app`，以維持既有更新流程。
+
 建置後會啟動 `dist/CapsStateKeeper.app`，點選選單列圖示即可操作：
 
 | 選單 | 用途 |
@@ -42,7 +44,7 @@ cd CapsStateKeeper
 | 自動同步 Caps Lock | 記住開關選擇，重新啟動後維持設定；取消勾選不影響浮標 |
 | 診斷與權限 | 查看偵測狀態、立即同步、重新啟動打字偵測或補齊權限 |
 | 檢查本機更新… | 安裝這台 Mac 已建置的新版；有設定本機更新位置時才顯示 |
-| 關於 CapsStateKeeper | 查看版本資訊 |
+| 關於 e04 | 查看版本資訊 |
 
 ## 權限與隱私
 
@@ -82,7 +84,7 @@ App 安裝到 `~/Applications/CapsStateKeeper.app`。之後先建置新版，再
 ## 常見狀況
 
 - **打字時沒有浮標**：確認「打字時顯示浮標」已勾選，再到「診斷與權限」查看原因。已授權但沒有打字訊號時，可選「重新啟動打字偵測」。
-- **更新後權限失效**：結束 App，在系統設定的隱私權與安全性中重新加入並允許已安裝的 CapsStateKeeper，再啟動 App。
+- **更新後權限失效**：結束 App，在系統設定的隱私權與安全性中重新加入並允許已安裝的 e04，再啟動 App。
 - **浮標顯示「輸入框旁」或「滑鼠旁」**：目前 App 沒有提供精確游標位置，會改用輸入框或最後一次打字時的滑鼠位置；浮標不會持續跟隨滑鼠。
 - **部分輸入法內部切換中英文沒有更新**：浮標依 macOS 的輸入來源通知顯示，無法保證辨識第三方輸入法未對系統公開的內部模式。`abc / ABC` 表示鍵盤配置下的英文字母大小寫，不預測文字欄位的自動大寫。
 

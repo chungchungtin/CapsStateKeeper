@@ -1,3 +1,22 @@
+# e04 v1.2.2-preview.2
+
+CapsStateKeeper 現在叫做 **e04**。打了一串才發現沒切中文，那個當下的心聲，就是新名字。
+
+- App 選單、關於視窗及本機更新介面改用 e04；App 版本為 1.2.2（build 7）。
+- 中英文網站與 README 同步更新名稱，保留既有公開網址。
+- 保留 Bundle ID、偏好設定、安裝檔名與更新路徑，延續既有安裝相容性。
+- 輸入法提示、大小寫顯示、Caps Lock 同步與多鍵盤支援維持原有行為。
+
+這仍是 **原始碼預覽版**，需要 macOS 14+ 與 Swift 6 自行建置，尚未提供經 Apple 公證的安裝檔。
+
+[作品網站](https://chungchungtin.github.io/CapsStateKeeper/) · [繁體中文建置說明](https://github.com/chungchungtin/CapsStateKeeper/blob/main/README.zh-TW.md) · [English guide](https://github.com/chungchungtin/CapsStateKeeper/blob/main/README.md)
+
+---
+
+CapsStateKeeper is now **e04**. This source preview updates the app's display name, menu and updater text, website, and README. Existing identifiers, preferences, install paths, and public URLs remain compatible. Build with Swift 6 on macOS 14 or later; no notarized installer is included.
+
+---
+
 # CapsStateKeeper v1.2.2-preview.1
 
 想打中文，卻打出一串英文？CapsStateKeeper 在 Mac 打字處顯示目前輸入法與大小寫，幫你及早發現切錯，少一點刪掉重打。

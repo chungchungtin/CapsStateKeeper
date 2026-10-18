@@ -174,10 +174,10 @@ final class CapsStateKeeperDelegate: NSObject, NSApplicationDelegate, NSMenuDele
         let update = LocalUpdateMenu()
         updateMenu = update
         menu.addItem(update.item)
-        menu.addItem(actionItem("關於 CapsStateKeeper", action: #selector(showAbout)))
+        menu.addItem(actionItem("關於 e04", action: #selector(showAbout)))
         menu.addItem(.separator())
 
-        let quit = actionItem("結束 CapsStateKeeper", action: #selector(quitApplication))
+        let quit = actionItem("結束 e04", action: #selector(quitApplication))
         quit.keyEquivalent = "q"
         menu.addItem(quit)
 
@@ -402,7 +402,7 @@ final class CapsStateKeeperDelegate: NSObject, NSApplicationDelegate, NSMenuDele
     @objc private func showAbout() {
         NSApp.activate(ignoringOtherApps: true)
         NSApp.orderFrontStandardAboutPanel(options: [
-            .applicationName: "CapsStateKeeper",
+            .applicationName: "e04",
             .credits: NSAttributedString(string: "顯示輸入狀態，並在切回 ABC 時同步 Caps Lock。")
         ])
     }

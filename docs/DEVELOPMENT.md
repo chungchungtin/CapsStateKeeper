@@ -4,6 +4,8 @@
 
 本專案使用 Swift Package Manager，沒有外部套件依賴。
 
+對外名稱為 **e04**（原名 CapsStateKeeper）。`CFBundleName`、`CFBundleDisplayName` 與介面使用新名稱；SwiftPM 產品名稱、套件檔名、Bundle ID、偏好設定、LaunchAgent 及更新路徑保留原識別，讓既有安裝與本機更新繼續相容。GitHub 與網站網址也保留原路徑。
+
 | 目錄 | 職責 |
 | --- | --- |
 | `Sources/CapsStateCore` | 同步判斷、鍵盤快取選擇、打字活動、浮標幾何與偏好設定 |

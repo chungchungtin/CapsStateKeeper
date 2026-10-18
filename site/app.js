@@ -11,7 +11,7 @@
     audience: "For Mac users who switch between Chinese and English",
     heading1: "Typing Chinese?", heading2: "Still in English?",
     lead1: "A Chinese message. An English URL. Another input-method switch.", lead2: "You type a string of characters, notice the wrong mode, delete it, and start again. There goes your train of thought.",
-    solution: "CapsStateKeeper shows your current input method where you type, so you can catch a wrong mode sooner and retype less.",
+    solution: "e04 shows your current input method where you type, so you can catch a wrong mode sooner and retype less.",
     demoLink: "See the reminder", permissionsLink: "Permissions & privacy", platform: "macOS 14+ · A native macOS utility",
     documentTitle: "Today's notes", modeZh: "Zhuyin", modeUpper: "ABC uppercase",
     demoCaption: "Interactive illustration · not a screen recording",
@@ -35,6 +35,7 @@
     commandCaption: "Run in the project directory", copy: "Copy", buildLink: "Build instructions", buildTitle: "Build and first launch",
     build1: "Requires macOS 14 or later and a Swift 6 toolchain.",
     build2: "After obtaining the source, run the command above in the project directory. The menu-bar app opens when the build finishes. Enable Accessibility and Input Monitoring as needed.",
+    buildName: "The app is displayed as e04. Its package remains named CapsStateKeeper.app to preserve the existing update workflow.",
     build3: "Current builds use local signing; macOS may require you to grant permissions again after rebuilding. A public installer is still in preparation.",
     readmeLink: "Read the full project guide (English)", readmeZhLink: "Read the full project guide (繁體中文)",
     sourceProject: "View on GitHub", sourceRelease: "Download source preview", feedbackLink: "Report an issue",
@@ -134,8 +135,8 @@
     $("#language").textContent = lang === "en" ? "繁中" : "EN";
     $("#footer-language").textContent = lang === "en" ? "繁體中文" : "English";
     [$("#language"), $("#footer-language")].forEach((button) => button.setAttribute("aria-label", t("Switch to English", "切換為繁體中文")));
-    document.title = t("CapsStateKeeper — 想打中文，卻打出英文？", "CapsStateKeeper — Typing Chinese? Still in English?");
-    $("meta[name=description]").content = t("想打中文，卻打出英文？CapsStateKeeper 在 Mac 的打字處顯示目前輸入法與大小寫，讓你早一點發現中英文切錯，少一點刪掉重打與思緒中斷。", "Meant to type Chinese but got English instead? CapsStateKeeper shows your active input method where you type on macOS, helping you catch a wrong mode sooner and retype less.");
+    document.title = t("e04 — 想打中文，卻打出英文？", "e04 — Typing Chinese? Still in English?");
+    $("meta[name=description]").content = t("想打中文，卻打出英文？e04 在 Mac 的打字處顯示目前輸入法與大小寫，讓你早一點發現中英文切錯，少一點刪掉重打與思緒中斷。", "Meant to type Chinese but got English instead? e04 shows your active input method where you type on macOS, helping you catch a wrong mode sooner and retype less.");
     $("meta[property=\"og:title\"]").content = document.title;
     $("meta[property=\"og:description\"]").content = $("meta[name=description]").content;
     $("meta[property=\"og:locale\"]").content = lang === "en" ? "en_US" : "zh_TW";

@@ -12,4 +12,4 @@ pkill -x "$APP_NAME" >/dev/null 2>&1 || true
 rm -f "$LAUNCH_AGENT"
 rm -rf "$INSTALLED_APP"
 
-echo "Removed CapsStateKeeper and its LaunchAgent."
+echo "Removed e04 and its LaunchAgent."

@@ -21,7 +21,7 @@ final class UpdaterDelegate: NSObject, NSApplicationDelegate {
                 return
             }
             let alert = NSAlert()
-            alert.messageText = "更新 CapsStateKeeper？"
+            alert.messageText = "更新 e04？"
             alert.informativeText = "新版：\(candidate.manifest.displayVersion)\n\n會先備份舊版、保留你的設定，更新後自動重新啟動。過程不需要終端機。\n\n本機簽章更新後，macOS 仍可能要求重新允許輔助使用。"
             alert.addButton(withTitle: "更新並重新啟動")
             alert.addButton(withTitle: "取消")
@@ -84,7 +84,7 @@ final class UpdaterDelegate: NSObject, NSApplicationDelegate {
     private func showProgress() {
         let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 400, height: 132),
                               styleMask: [.titled], backing: .buffered, defer: false)
-        window.title = "正在更新 CapsStateKeeper"
+        window.title = "正在更新 e04"
         window.isReleasedWhenClosed = false
         let label = NSTextField(wrappingLabelWithString: "正在備份、安裝並重新啟動…\n請稍候，你的浮標設定會保留。")
         label.frame = NSRect(x: 28, y: 58, width: 344, height: 48)
@@ -106,7 +106,7 @@ final class UpdaterDelegate: NSObject, NSApplicationDelegate {
         progressWindow?.close()
         progressWindow = nil
         if status == 0 {
-            finish("更新完成", "CapsStateKeeper 已重新啟動，設定已保留。\n\n以後可直接從選單列選「檢查本機更新…」。若浮標提示缺少權限，再依選單指示重新允許。")
+            finish("更新完成", "e04 已重新啟動，設定已保留。\n\n以後可直接從選單列選「檢查本機更新…」。若浮標提示缺少權限，再依選單指示重新允許。")
         } else {
             let output = (try? String(contentsOf: log, encoding: .utf8)) ?? "無法讀取更新記錄"
             let detail = String(output.split(separator: "\n").suffix(5).joined(separator: "\n").prefix(600))

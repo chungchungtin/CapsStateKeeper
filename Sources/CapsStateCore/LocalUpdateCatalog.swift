@@ -74,7 +74,7 @@ public enum LocalUpdateCatalog {
         }
         let installed = LocalUpdateManifest(appURL: installedApp)
         if let installed, installed.identifier != LocalUpdateManifest.bundleID {
-            return .unavailable("安裝位置是不同的 App，不會自動覆寫。請確認 CapsStateKeeper 的安裝位置。")
+            return .unavailable("安裝位置是不同的 App，不會自動覆寫。請確認 e04 的安裝位置。")
         }
         guard candidate.isNewer(than: installed) else {
             return .current(installed?.displayVersion ?? candidate.displayVersion)

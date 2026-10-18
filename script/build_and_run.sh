@@ -7,6 +7,7 @@ case "$MODE" in
   *) printf 'usage: %s [build|run|--debug|--logs|--telemetry|--verify]\n' "$0" >&2; exit 2 ;;
 esac
 APP_NAME="CapsStateKeeper"
+APP_DISPLAY_NAME="e04"
 BUNDLE_ID="com.zhongyongting.CapsStateKeeper"
 MIN_SYSTEM_VERSION="14.0"
 
@@ -48,9 +49,10 @@ make_bundle() {
   /usr/bin/plutil -insert CFBundleExecutable -string "$executable" "$plist"
   /usr/bin/plutil -insert CFBundleIdentifier -string "$identifier" "$plist"
   /usr/bin/plutil -insert CFBundleName -string "$display_name" "$plist"
+  /usr/bin/plutil -insert CFBundleDisplayName -string "$display_name" "$plist"
   /usr/bin/plutil -insert CFBundlePackageType -string APPL "$plist"
   /usr/bin/plutil -insert CFBundleShortVersionString -string 1.2.2 "$plist"
-  /usr/bin/plutil -insert CFBundleVersion -string 6 "$plist"
+  /usr/bin/plutil -insert CFBundleVersion -string 7 "$plist"
   /usr/bin/plutil -insert LSMinimumSystemVersion -string "$MIN_SYSTEM_VERSION" "$plist"
   /usr/bin/plutil -insert LSUIElement -bool true "$plist"
   /usr/bin/plutil -insert NSPrincipalClass -string NSApplication "$plist"
@@ -58,9 +60,9 @@ make_bundle() {
   /usr/bin/plutil -insert CapsStateKeeperBuildID -string "$BUILD_ID" "$plist"
   /usr/bin/plutil -insert CapsStateKeeperBuiltAt -string "$BUILT_AT" "$plist"
 }
-make_bundle "$PACKAGE_STAGE/$APP_NAME.app" "$APP_NAME" "$BUNDLE_ID" "$APP_NAME" "$BUILD_BINARY"
+make_bundle "$PACKAGE_STAGE/$APP_NAME.app" "$APP_NAME" "$BUNDLE_ID" "$APP_DISPLAY_NAME" "$BUILD_BINARY"
 UPDATER_NAME="更新 CapsStateKeeper.app"
-make_bundle "$PACKAGE_STAGE/$UPDATER_NAME" CapsStateUpdater "$BUNDLE_ID.Updater" "更新 CapsStateKeeper" "$UPDATER_BINARY"
+make_bundle "$PACKAGE_STAGE/$UPDATER_NAME" CapsStateUpdater "$BUNDLE_ID.Updater" "更新 $APP_DISPLAY_NAME" "$UPDATER_BINARY"
 mkdir -p "$PACKAGE_STAGE/$UPDATER_NAME/Contents/Resources"
 cp "$ROOT_DIR/script/install.sh" "$ROOT_DIR/script/install-core.sh" "$PACKAGE_STAGE/$UPDATER_NAME/Contents/Resources/"
 

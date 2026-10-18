@@ -1,14 +1,14 @@
-# CapsStateKeeper
+# e04
 
 English · [繁體中文](README.zh-TW.md)
 
-[Website](https://chungchungtin.github.io/CapsStateKeeper/) · [Source preview release](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.2-preview.1) · [Report an issue](https://github.com/chungchungtin/CapsStateKeeper/issues)
+[Website](https://chungchungtin.github.io/CapsStateKeeper/) · [Source preview release](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.2-preview.2) · [Report an issue](https://github.com/chungchungtin/CapsStateKeeper/issues)
 
 **Meant to type Chinese, but got a string of English characters instead?**
 
 A Chinese message, an English URL, a switch to another app: when you move between Chinese and English throughout the day, it is easy to leave the wrong input method active. You type, notice the mismatch, delete it, switch modes, and start again. Your train of thought gets interrupted along the way.
 
-CapsStateKeeper is a small macOS utility for that everyday friction. While you type, it shows the active input method and `abc / ABC` beside the text cursor, so you can catch a wrong mode sooner and retype less.
+e04 (formerly CapsStateKeeper) is a small macOS utility for that everyday friction. While you type, it shows the active input method and `abc / ABC` beside the text cursor, so you can catch a wrong mode sooner and retype less.
 
 The indicator does not take focus, lets mouse clicks pass through, and hides about two seconds after typing stops. The app also shows Caps Lock in the menu bar and repairs a specific Caps Lock mismatch when switching back to ABC.
 
@@ -35,6 +35,8 @@ cd CapsStateKeeper
 ./script/build_and_run.sh
 ```
 
+The app is displayed as **e04**. Its package remains named `CapsStateKeeper.app` to preserve the existing update workflow.
+
 The build opens `dist/CapsStateKeeper.app`. Click its menu-bar icon to access:
 
 | Menu item | Purpose |
@@ -44,7 +46,7 @@ The build opens `dist/CapsStateKeeper.app`. Click its menu-bar icon to access:
 | 自動同步 Caps Lock | Enable or disable automatic synchronization; the choice persists across launches and does not affect the indicator |
 | 診斷與權限 | Check detection status, synchronize now, restart typing detection, or grant missing permissions |
 | 檢查本機更新… | Install a newer package already built on this Mac; appears only when a local update location is configured |
-| 關於 CapsStateKeeper | View the app version |
+| 關於 e04 | View the app version |
 
 ## Permissions and privacy
 
