@@ -96,7 +96,7 @@ public struct SystemCapsStateReader {
         preferredKeyboard: KeyboardDescriptor? = nil
     ) throws -> CapsStateSnapshot {
         CapsStateSnapshot(
-            sourceID: currentInputSourceID(),
+            sourceID: Self.inputSourceID(TISCopyCurrentKeyboardInputSource()?.takeRetainedValue()),
             eventCapsLock: CGEventSource.flagsState(.combinedSessionState)
                 .contains(.maskAlphaShift),
             hidCapsLock: KeyboardCapsCacheSelector.state(
@@ -106,9 +106,8 @@ public struct SystemCapsStateReader {
         )
     }
 
-    private func currentInputSourceID() -> String {
-        let source = TISCopyCurrentKeyboardInputSource().takeRetainedValue()
-        guard let pointer = TISGetInputSourceProperty(
+    static func inputSourceID(_ source: TISInputSource?) -> String {
+        guard let source, let pointer = TISGetInputSourceProperty(
             source,
             kTISPropertyInputSourceID
         ) else {

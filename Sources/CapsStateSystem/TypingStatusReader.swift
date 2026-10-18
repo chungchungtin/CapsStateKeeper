@@ -21,7 +21,14 @@ public final class TypingStatusReader {
     }
 
     public func refreshInputSource() {
-        let selected = TISCopyCurrentKeyboardInputSource().takeRetainedValue()
+        refreshInputSource(
+            selected: TISCopyCurrentKeyboardInputSource()?.takeRetainedValue(),
+            asciiLayout: TISCopyCurrentASCIICapableKeyboardLayoutInputSource()?.takeRetainedValue()
+        )
+    }
+
+    // Input services can be unavailable in a session without a keyboard source.
+    func refreshInputSource(selected: TISInputSource?, asciiLayout: TISInputSource?) {
         let languages: [String] = property(selected, kTISPropertyInputSourceLanguages) ?? []
         let sourceID: String = property(selected, kTISPropertyInputSourceID) ?? "unknown"
         if sourceID != source.id { invalidateKeyboardModifiers() }
@@ -33,8 +40,7 @@ public final class TypingStatusReader {
 
         // Read a layout table; never observe or generate typed characters. The ASCII
         // layout also defines the Latin-letter case indicator while using an IME.
-        let layout = TISCopyCurrentASCIICapableKeyboardLayoutInputSource().takeRetainedValue()
-        let data: Data? = property(layout, kTISPropertyUnicodeKeyLayoutData)
+        let data: Data? = property(asciiLayout, kTISPropertyUnicodeKeyLayoutData)
         for index in 0..<4 {
             let caps = index & 1 != 0
             let shift = index & 2 != 0
@@ -96,8 +102,8 @@ public final class TypingStatusReader {
         }
     }
 
-    private func property<T>(_ source: TISInputSource, _ key: CFString) -> T? {
-        guard let pointer = TISGetInputSourceProperty(source, key) else { return nil }
+    private func property<T>(_ source: TISInputSource?, _ key: CFString) -> T? {
+        guard let source, let pointer = TISGetInputSourceProperty(source, key) else { return nil }
         return Unmanaged<AnyObject>.fromOpaque(pointer).takeUnretainedValue() as? T
     }
 }

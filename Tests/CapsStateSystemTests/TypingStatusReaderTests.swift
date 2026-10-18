@@ -68,10 +68,28 @@ final class TypingStatusReaderTests: XCTestCase {
     }
 
     @MainActor
+    func testUnavailableInputSourceKeepsModifierDisplayUsable() {
+        let reader = TypingStatusReader(readFlags: { _ in [] }, now: { 0 })
+        reader.refreshInputSource(selected: nil, asciiLayout: nil)
+        XCTAssertEqual(reader.snapshot().source.id, "unknown")
+        XCTAssertEqual(reader.snapshot().source.displayName, "輸入法")
+        for (caps, shift) in [(false, false), (true, false), (false, true), (true, true)] {
+            reader.observeKeyboardModifiers(capsLock: caps, shift: shift)
+            XCTAssertEqual(reader.snapshot().isUppercase, caps || shift)
+        }
+    }
+
+    func testUnavailableInputSourceDoesNotBecomeASynchronizationTarget() {
+        XCTAssertEqual(SystemCapsStateReader.inputSourceID(nil), "unknown")
+    }
+
+    @MainActor
     func testABCLayoutIncludesShiftAndCapsCombinationWithoutChangingInputSource() throws {
         let filter = [kTISPropertyInputSourceID as String: "com.apple.keylayout.ABC"] as CFDictionary
-        let sources = TISCreateInputSourceList(filter, false).takeRetainedValue() as! [TISInputSource]
-        let source = try XCTUnwrap(sources.first)
+        guard let list = TISCreateInputSourceList(filter, true)?.takeRetainedValue(),
+              let sources = list as? [TISInputSource], let source = sources.first else {
+            throw XCTSkip("The ABC layout check requires macOS keyboard input services, unavailable in some CI sessions")
+        }
         let pointer = try XCTUnwrap(TISGetInputSourceProperty(source, kTISPropertyUnicodeKeyLayoutData))
         let data = Unmanaged<CFData>.fromOpaque(pointer).takeUnretainedValue() as Data
         // macOS ABC keeps letters uppercase with Caps+Shift; XOR would be incorrect.

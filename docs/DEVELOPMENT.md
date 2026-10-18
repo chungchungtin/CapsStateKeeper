@@ -37,6 +37,8 @@ swift run CapsIndicatorPreview dist/opacity-menu-preview.png --opacity-menu
 
 `--debug`、`--logs` 與 `--telemetry` 可分別啟用除錯器、程序記錄及專案子系統記錄。平常使用 `./script/build_and_run.sh` 即可。
 
+GitHub Actions 使用 macOS 執行測試與建置。兩項 HID 檢查需以環境變數明確啟用；ABC 配置檢查在系統未提供鍵盤輸入服務時標示略過。輸入服務不可用時的顯示及同步判斷另有獨立測試；此時使用一般輸入法標記，保留大小寫讀取，並停止 ABC 同步。
+
 ## Caps Lock 同步邊界
 
 - 「自動同步 Caps Lock」使用 `CapsLockSynchronizationEnabled` 保存開關選擇。未設定時預設啟用；取消勾選後，重新啟動仍維持暫停，不影響浮標設定。

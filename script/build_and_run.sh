@@ -50,7 +50,7 @@ make_bundle() {
   /usr/bin/plutil -insert CFBundleName -string "$display_name" "$plist"
   /usr/bin/plutil -insert CFBundlePackageType -string APPL "$plist"
   /usr/bin/plutil -insert CFBundleShortVersionString -string 1.2.2 "$plist"
-  /usr/bin/plutil -insert CFBundleVersion -string 5 "$plist"
+  /usr/bin/plutil -insert CFBundleVersion -string 6 "$plist"
   /usr/bin/plutil -insert LSMinimumSystemVersion -string "$MIN_SYSTEM_VERSION" "$plist"
   /usr/bin/plutil -insert LSUIElement -bool true "$plist"
   /usr/bin/plutil -insert NSPrincipalClass -string NSApplication "$plist"
