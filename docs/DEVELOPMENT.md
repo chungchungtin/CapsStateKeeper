@@ -74,4 +74,13 @@ GitHub Actions 使用 macOS 執行測試與建置。兩項 HID 檢查需以環�
 
 `.gitignore` 排除建置產物、App 備份、早期 Apple 問題回報資料，以及舊的「安裝浮動提示」捷徑。這些本機檔案仍保留，公開的使用入口以 README 為準。
 
-目前腳本仍是本機建置工具，套件會包含建置機的專案路徑。公開二進位發佈應另行準備移除該路徑的發佈套件及簽章／公證流程；不要直接把整個專案資料夾或本機更新套件當成公開發佈包。
+本機 build_and_run.sh 的套件包含建置機的專案路徑；公開發佈須使用下述獨立打包流程，不直接發佈本機開發套件。
+
+
+## 公開測試版打包
+
+`./script/make-icon.sh` 由 Resources/AppIcon.png 產生原生 ICNS。`./script/package-release.sh` 使用 release 模式建立 arm64 / x86_64 通用程式，輸出 DMG、ZIP 與 SHA-256 至 `dist/releases/v1.2.3-preview.1/`。若輸出已存在會停止，避免覆蓋既有發佈產物。
+
+公開 App 僅保留必要的版本與圖示資訊，不寫入本機專案路徑、更新位置或開發用建置時間；不附本機更新助手。使用既有 Bundle ID，維持偏好設定識別。安裝包目前僅有 ad-hoc 簽章及 hardened runtime，沒有 Developer ID 簽章與 Apple 公證。取得有效開發者憑證後，需另行加入 Developer ID 簽章、公證與 stapling 流程，再更新網站的信任狀態。
+
+Apple Silicon 上已可執行實機啟動檢查；Intel 部分須另外用實機驗收，不能把通用程式的編譯成功等同 Intel 執行驗證。

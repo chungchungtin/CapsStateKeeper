@@ -2,7 +2,7 @@
 
 [English](README.md) · 繁體中文
 
-[作品網站](https://chungchungtin.github.io/CapsStateKeeper/) · [原始碼預覽版](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.2-preview.2) · [回報問題](https://github.com/chungchungtin/CapsStateKeeper/issues)
+[作品網站](https://chungchungtin.github.io/CapsStateKeeper/) · [下載測試版](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.3-preview.1) · [回報問題](https://github.com/chungchungtin/CapsStateKeeper/issues)
 
 **想打中文，卻打出一串英文？**
 
@@ -14,7 +14,16 @@ e04（原名 CapsStateKeeper）是給經常切換中英文的 Mac 使用者的�
 
 ![原生浮標預覽](site/assets/native-indicator.png)
 
-目前提供可自行建置的預覽版，尚無經 Apple 公證的安裝檔。
+## 下載與安裝
+
+提供 **macOS 14+ 通用版 DMG / ZIP**，支援 Apple Silicon 與 Intel，不需安裝 Swift 或 Xcode。
+
+[下載 DMG](https://github.com/chungchungtin/CapsStateKeeper/releases/download/v1.2.3-preview.1/e04-v1.2.3-preview.1-universal.dmg) · [版本說明、ZIP 與 SHA-256](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.3-preview.1)
+
+這是未經 Developer ID 簽章與 Apple 公證的測試版。將 App 拖到應用程式後啟動；若 macOS 無法驗證開發者，且你信任下載來源，請依 [Apple 官方說明](https://support.apple.com/zh-tw/102445) 為這個 App 選擇「強制打開」。浮標需要輔助使用權限，多鍵盤辨識使用輸入監控。
+
+已有舊版時，先結束 App、備份，再替換原安裝位置的 App；尤其使用舊登入腳本的 `~/Applications/CapsStateKeeper.app` 應維持原位置，避免同時安裝兩份。偏好設定識別不變，權限可能需要重新允許。公開版不含本機開發更新程式，也不自動下載更新。[完整安裝說明](docs/INSTALL.txt)
+
 
 ## 功能
 
@@ -57,7 +66,7 @@ App 顯示名稱為 **e04**；套件檔名仍為 `CapsStateKeeper.app`，以維�
 
 App 不保存、不記錄、不傳送輸入內容，也不建立網路連線或擷取螢幕。定位只讀取幾何資訊；安全鍵盤輸入期間隱藏浮標。事件處理範圍與同步條件見[開發說明](docs/DEVELOPMENT.md)。
 
-## 安裝與更新
+## 開發者本機安裝與更新
 
 長期使用並在登入時啟動：
 
@@ -79,7 +88,7 @@ App 安裝到 `~/Applications/CapsStateKeeper.app`。之後先建置新版，再
 ./script/uninstall.sh
 ```
 
-目前建置預設採用本機 ad-hoc 簽章，重新建置後 macOS 可能要求重新授權；專案尚未包含公證及線上發佈流程。
+目前建置預設採用本機 ad-hoc 簽章，重新建置後 macOS 可能要求重新授權；公開測試版另由 `script/package-release.sh` 打包。
 
 ## 常見狀況
 

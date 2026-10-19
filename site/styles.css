@@ -13,3 +13,6 @@ html[lang=en] h1{font-size:clamp(42px,4.15vw,60px);line-height:1.12;letter-spaci
 @media(max-width:540px){.eyebrow{font-size:12px;margin-bottom:12px}.solution,html[lang=en] .solution{font-size:16px;line-height:1.8;margin-bottom:24px}html[lang=en] .eyebrow{font-size:12px}}
 
 .source-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}.footer>div{flex-wrap:wrap;justify-content:center}@media(max-width:540px){.source-links{gap:14px}.footer>div{row-gap:10px}}
+
+/* Public preview download and installation. */
+.download{background:var(--blue);color:white;margin-top:0}.download:hover{background:#0857d4}.signing-note{font-size:14px;line-height:1.7;color:#6c4c18;background:#fff8eb;border:1px solid #f0dfbd;border-radius:9px;padding:14px 16px;margin:18px 0}.build-panel ol{padding-left:1.4em}.build-panel li{margin-bottom:10px}.build-panel>.source-links{margin-bottom:18px}

@@ -1,0 +1,26 @@
+e04 1.2.3 Preview — macOS 14+ / Apple Silicon and Intel
+
+繁體中文
+1. 開啟 DMG，將 App 拖到 Applications（應用程式），完成後退出磁碟映像檔。
+2. 從「應用程式」啟動 e04。這是選單列工具，不會開啟一般主視窗。
+3. 本測試版尚未經 Apple 開發者簽章與公證。若 macOS 無法驗證開發者，且你確定檔案來自本專案，可依 Apple 說明到「系統設定 > 隱私權與安全性」選擇此 App 的「強制打開」。不需要關閉系統整體安全保護。
+4. 浮標需要「輔助使用」權限；多鍵盤辨識使用「輸入監控」。可從選單的「診斷與權限」設定。
+
+原名為 CapsStateKeeper；套件檔名保留 CapsStateKeeper.app，顯示名稱為 e04。
+若已有舊版：先從選單結束舊版，保留備份，再替換同一安裝位置的 App。原本使用 ~/Applications/CapsStateKeeper.app 與登入啟動腳本者，請維持原位置，不要另裝第二份。偏好設定識別碼不變，更新後可能需要重新授權。公開版不包含本機開發更新程式，也不會自動下載更新。
+若使用 ZIP：解壓縮後將 App 放入應用程式；其他步驟相同。
+
+English
+1. Open the DMG, drag the app to Applications, and eject the disk image.
+2. Launch e04 from Applications. This is a menu-bar utility; no main window opens.
+3. This preview is ad-hoc signed and is NOT Developer ID signed or Apple notarized. If macOS cannot verify the developer, follow Apple's per-app Open Anyway instructions only if you trust this project's download. Do not disable system-wide security protections.
+4. Allow Accessibility for the typing indicator; Input Monitoring identifies keyboards for synchronization. Use the app's diagnostics and permissions menu.
+
+The bundle filename remains CapsStateKeeper.app. When updating an existing installation, quit it, keep a backup, and replace the app in its original location. Keep ~/Applications/CapsStateKeeper.app if you use the old login-launch script. Do not install a second copy. Preferences use the same identifier; macOS may require permissions again. Public builds do not include the local development updater or automatic downloads.
+ZIP alternative: extract the app, move it to Applications, and follow the same steps.
+
+Apple instructions / Apple 說明:
+https://support.apple.com/zh-tw/102445
+https://support.apple.com/en-us/102445
+Project / 專案:
+https://github.com/chungchungtin/CapsStateKeeper

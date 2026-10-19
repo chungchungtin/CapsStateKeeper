@@ -17,3 +17,5 @@ jobs:
         run: swift test
       - name: Build and verify local app bundles
         run: ./script/build_and_run.sh build
+      - name: Package and verify universal preview
+        run: ./script/package-release.sh

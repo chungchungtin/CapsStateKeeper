@@ -2,7 +2,7 @@
 
 English · [繁體中文](README.zh-TW.md)
 
-[Website](https://chungchungtin.github.io/CapsStateKeeper/) · [Source preview release](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.2-preview.2) · [Report an issue](https://github.com/chungchungtin/CapsStateKeeper/issues)
+[Website](https://chungchungtin.github.io/CapsStateKeeper/) · [Download preview](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.3-preview.1) · [Report an issue](https://github.com/chungchungtin/CapsStateKeeper/issues)
 
 **Meant to type Chinese, but got a string of English characters instead?**
 
@@ -14,7 +14,16 @@ The indicator does not take focus, lets mouse clicks pass through, and hides abo
 
 ![Native input indicator preview](site/assets/native-indicator.png)
 
-This is a preview you can build from source. An Apple-notarized installer is not yet available.
+## Download and install
+
+A **universal DMG / ZIP for macOS 14+** supports Apple Silicon and Intel. No Swift or Xcode installation is needed.
+
+[Download DMG](https://github.com/chungchungtin/CapsStateKeeper/releases/download/v1.2.3-preview.1/e04-v1.2.3-preview.1-universal.dmg) · [Release notes, ZIP and SHA-256](https://github.com/chungchungtin/CapsStateKeeper/releases/tag/v1.2.3-preview.1)
+
+This preview is ad-hoc signed, not Developer ID signed or Apple notarized. Drag the app to Applications and launch it. If macOS cannot verify the developer and you trust this download, follow [Apple's per-app Open Anyway instructions](https://support.apple.com/en-us/102445). Allow Accessibility for the indicator and Input Monitoring for keyboard identification.
+
+For existing installations, quit, keep a backup, and replace the app in its original location. Keep `~/Applications/CapsStateKeeper.app` if you use the older login script; avoid installing two copies. The preferences identifier is unchanged, but permissions may need to be granted again. Public builds do not contain the local development updater or automatic downloads. [Full installation instructions](docs/INSTALL.txt)
+
 
 ## Features
 
@@ -81,7 +90,7 @@ To remove the installed app and its login item:
 ./script/uninstall.sh
 ```
 
-Current builds use local ad-hoc signing by default. macOS may require permissions to be granted again after a rebuild. A notarized, ready-to-install public release is not yet available.
+Current builds use local ad-hoc signing by default. macOS may require permissions to be granted again after a rebuild. The public preview is packaged separately with `script/package-release.sh` and is not notarized.
 
 ## Known limitations
 

@@ -1,3 +1,21 @@
+# e04 v1.2.3-preview.1 — 可直接安裝的測試版
+
+新增 macOS 14+ 通用版 DMG 與 ZIP，包含 Apple Silicon / Intel 程式，不需要 Swift 或 Xcode 即可安裝。主圖示使用 e、4 作眼睛、0 作嘴巴的簡約鍵帽表情。
+
+- DMG：開啟後將 App 拖入 Applications；ZIP：解壓縮後將 App 放入應用程式。
+- 使用相同 Bundle ID 與偏好設定識別，套件檔名仍為 CapsStateKeeper.app。已有舊版請先結束並備份，再替換原位置，避免裝入第二份。
+- 公開版移除本機專案路徑及開發更新入口，附中英文安裝說明與 SHA-256 檢查碼。
+- 本測試版採 ad-hoc 簽章，**未經 Developer ID 簽章或 Apple 公證**。首次開啟可能遭 Gatekeeper 阻擋。若確認下載來源可信，請依 [Apple 官方說明](https://support.apple.com/zh-tw/102445) 為此 App 選擇「強制打開」。
+- 浮標需要輔助使用權限；多鍵盤辨識使用輸入監控。實際相容性仍需更多 Mac、輸入法與鍵盤組合驗證。
+
+[作品網站](https://chungchungtin.github.io/CapsStateKeeper/#get-app) · [完整安裝說明](https://github.com/chungchungtin/CapsStateKeeper/blob/main/docs/INSTALL.txt)
+
+---
+
+Universal DMG and ZIP preview for macOS 14+, including Apple Silicon and Intel binaries. No development tools are required. This release is ad-hoc signed, **not Developer ID signed or Apple notarized**. Read the included installation instructions before opening. Existing installations should be quit, backed up, and replaced in the same location. Public bundles omit local development paths and updater metadata.
+
+---
+
 # e04 v1.2.2-preview.2
 
 CapsStateKeeper 現在叫做 **e04**。打了一串才發現沒切中文，那個當下的心聲，就是新名字。
